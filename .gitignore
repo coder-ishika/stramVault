@@ -1,0 +1,19 @@
+# Never commit node_modules from anywhere
+node_modules/
+**/node_modules/
+
+# Never commit .env files
+.env
+**/.env
+
+# Build output
+frontend/dist/
+frontend/dist-ssr/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

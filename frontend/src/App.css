@@ -1,0 +1,115 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Dark mode (default) ────────────────────────────── */
+:root {
+  --bg:          #0a0a0c;
+  --bg2:         #111115;
+  --bg3:         #18181e;
+  --surface:     #1e1e26;
+  --surface2:    #25252f;
+  --sidebar-bg:  #111114;
+  --border:      #2e2e3a;
+  --border2:     #3a3a48;
+  --amber:       #f5a623;
+  --amber2:      #ffbf4f;
+  --amber-dim:   rgba(245,166,35,0.12);
+  --amber-glow:  rgba(245,166,35,0.25);
+  --text:        #e8e8f0;
+  --text2:       #9898b0;
+  --text3:       #5a5a70;
+  --red:         #ff5757;
+  --green:       #3ecf8e;
+  --radius:      12px;
+  --radius-sm:   8px;
+  --font-head:   'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body:   'Segoe UI', 'SF Pro Text',    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --shadow:      0 8px 32px rgba(0,0,0,0.5);
+  --shadow-amber:0 0 24px rgba(245,166,35,0.15);
+}
+
+/* ── Light mode overrides ───────────────────────────── */
+[data-theme="light"] {
+  --bg:          #f5f4f0;
+  --bg2:         #eeecea;
+  --bg3:         #e6e4e0;
+  --surface:     #ffffff;
+  --surface2:    #f0eeec;
+  --sidebar-bg:  #ffffff;
+  --border:      rgba(0,0,0,0.08);
+  --border2:     rgba(0,0,0,0.18);
+  --amber:       #d4870a;
+  --amber2:      #b8720a;
+  --amber-dim:   rgba(212,135,10,0.1);
+  --amber-glow:  rgba(212,135,10,0.2);
+  --text:        #111111;
+  --text2:       #555566;
+  --text3:       #999aaa;
+  --red:         #cc3333;
+  --green:       #1a8f5a;
+  --shadow:      0 8px 32px rgba(0,0,0,0.1);
+  --shadow-amber:0 0 24px rgba(212,135,10,0.15);
+}
+
+/* ── Base ───────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s, color 0.25s;
+}
+
+[data-theme="dark"] body,
+:root body {
+  background-image: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(245,166,35,0.06) 0%, transparent 70%);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--amber); }
+
+input, textarea, select, button {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ── Layout ─────────────────────────────────────────── */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-main {
+  margin-left: 240px;
+  flex: 1;
+  min-height: 100vh;
+  background: var(--bg);
+  transition: background 0.25s;
+}
+ .app-main-full {
+  flex: 1;
+  min-height: 100vh;
+  background: var(--bg);
+  transition: background 0.25s;
+}
+
+.page-content {
+  flex: 1;
+  padding: 40px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .app-shell { flex-direction: column; }
+  .app-main { margin-left: 0; }
+  .page-content { padding: 24px 16px; }
+}
