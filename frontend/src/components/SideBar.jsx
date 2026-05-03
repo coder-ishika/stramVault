@@ -79,7 +79,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useState, useEffect } from "react";
-import "./Sidebar.css";
+import "./SideBar.css";
 
 export default function Sidebar() {
   const { user, logout } = useAuth();
